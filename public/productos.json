@@ -1,0 +1,32 @@
+
+
+[
+  {
+    "id": 1,
+    "nombre": "Mini Platanote",
+    "precio": 25,
+    "imagen": "/img/miniplatanote.jpg",
+    "descripcion": "Habla en cadena nacional automáticamente."
+  },
+  {
+    "id": 2,
+    "nombre": "Mini Flor",
+    "precio": 30,
+    "imagen": "/img/miniflor.jpg",
+    "descripcion": "Sube de nivel cuando escucha aplausos."
+  },
+  {
+    "id": 3,
+    "nombre": "Mini Mona",
+    "precio": 20,
+    "imagen": "/img/minimona.jpg",
+    "descripcion": "Acaba de aparecer y promete mucho"
+  },
+  {
+    "id": 4,
+    "nombre": "Mini Pelón",
+    "precio": 40,
+    "imagen": "/img/minipelon.jpg",
+    "descripcion": "Hace discursos de 8 horas sin batería."
+  }
+]

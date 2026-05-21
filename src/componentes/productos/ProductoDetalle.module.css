@@ -1,0 +1,42 @@
+
+
+.detalle {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.detalle img {
+  width: 350px;
+  border-radius: 12px;
+}
+
+.detalle button {
+  background-color: #F4C300;
+  border: none;
+  padding: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.detalle button:hover {
+  background-color: #CF142B;
+  color: white;
+}
+
+@media (max-width: 768px) {
+
+  .detalle {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .detalle img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+}
