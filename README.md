@@ -14,7 +14,7 @@ Demo
 
 🔗 Link del proyecto desplegado:
 
-(Agregar aquí el link de Netlify)
+https://politikitos-store.vercel.app/
 
 Tecnologías utilizadas
 
