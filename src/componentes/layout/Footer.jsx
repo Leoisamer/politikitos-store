@@ -4,7 +4,7 @@ import styles from './Footer.module.css';
 function Footer() {
   return (
     <footer className={styles.footer}>
-      <h3>🟡🔵🔴 PolitiKeros Store</h3>
+      <h3>🟡🔵🔴 © 2026 Politikitos Store</h3>
       <p>
         Adoptando políticos desde 2026.
       </p>

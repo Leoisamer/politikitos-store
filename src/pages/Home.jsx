@@ -11,19 +11,15 @@ function Home() {
     >
 
       <h2>
-        Bienvenido a PolitiKeros Store
+        Bienvenido a PolitiKitos Store
       </h2>
 
-      <p
-        style={{
-          fontSize: '1.2rem',
-          marginTop: '1rem'
-          }
-        }
-      >
-        Lleve su político favorito y,
-        de ser posible,
-        edúquelo bien.
+      <p style={{ fontSize: '1.2rem', marginTop: '1rem'}}>
+        Descubrí una colección de mascotas virtuales inspiradas 
+        en la sátira política. Explorá el catálogo, elegí tus 
+        Politikitos favoritos y completá tu adopción.
+        Adoptá tu político virtual favorito.
+        Y de ser posible, ¡Edúcalo bien!
       </p>
 
       <p>

@@ -1,30 +1,47 @@
-import {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
+import { useEffect, useState, useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { doc, getDoc } from 'firebase/firestore';
 import styles from './ProductoDetalle.module.css';
-import {useContext} from 'react';
-import {CartContext} from '../../context/CartContext';
+import { CartContext } from '../../context/CartContext';
+import { db } from '../../firebase/config';
 
 
 function ProductoDetalle() {
 
-  const {id} = useParams();
-  
+  const { id } = useParams();
+
   const [producto, setProducto] = useState(null);
 
-  const {addToCart} = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
-    fetch('/productos.json')
-      .then((response) => response.json())
-      .then((data) => {
-      
-        const productoEncontrado = data.find(
-          (prod) => prod.id == (id)
-        );
-        
-        setProducto(productoEncontrado);
 
-      });
+    const obtenerProducto = async () => {
+
+      try {
+
+        const productoRef = doc(db, "productos", id);
+
+        const snapshot = await getDoc(productoRef);
+
+        if (snapshot.exists()) {
+
+          setProducto({
+            id: snapshot.id,
+            ...snapshot.data(),
+          });
+
+        }
+
+      } catch (error) {
+
+        console.error(error);
+
+      }
+
+    };
+
+    obtenerProducto();
 
   }, [id]);
 
@@ -42,17 +59,23 @@ function ProductoDetalle() {
       />
 
       <div>
+
         <h2>{producto.nombre}</h2>
+
         <p>{producto.descripcion}</p>
+
         <h3>${producto.precio}</h3>
+
         <button onClick={() => addToCart(producto)}>
           Adoptar político
         </button>
+
       </div>
 
     </section>
 
   );
+
 }
 
 export default ProductoDetalle;

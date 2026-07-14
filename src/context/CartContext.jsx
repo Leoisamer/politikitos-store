@@ -22,7 +22,36 @@ function CartProvider({children}) {
 
   const addToCart = (producto) => {
 
-    setCart([...cart, producto]);
+    const productoExistente = cart.find(
+      (item) => item.id === producto.id
+    );
+
+    if (productoExistente) {
+
+      const carritoActualizado = cart.map((item) =>
+
+        item.id === producto.id
+          ? {
+              ...item,
+              cantidad: item.cantidad + 1
+            }
+          : item
+
+      );
+
+      setCart(carritoActualizado);
+
+    } else {
+
+      setCart([
+        ...cart,
+        {
+          ...producto,
+          cantidad: 1
+        }
+      ]);
+
+    }
 
   };
 

@@ -1,0 +1,14 @@
+
+
+.logo{
+  font-family:"Fredoka", sans-serif;
+  font-size:3rem;
+  font-weight:700;
+  letter-spacing:2px;
+  color:#F4C300;
+  text-shadow:
+    2px 2px 0 #8f0000,
+    4px 4px 10px rgba(0,0,0,.20);
+  text-transform:uppercase;
+  margin:0;
+}

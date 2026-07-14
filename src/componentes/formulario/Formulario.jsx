@@ -30,7 +30,7 @@ function Formulario() {
 
   return (
     <section className={styles.formSection}>
-      <h2>Solicitud de adopción 🇻🇪</h2>
+      <h2>Solicitud de adopción gratuita 🇻🇪</h2>
       <form
         className={styles.form}
         onSubmit={handleSubmit}
@@ -55,7 +55,7 @@ function Formulario() {
 
         <textarea
           name="mensaje"
-          placeholder="¿Por qué deseas adoptar un politiKero?"
+          placeholder="¿Por qué deseas adoptar un politiKito?"
           value={formData.mensaje}
           onChange={handleChange}
           required

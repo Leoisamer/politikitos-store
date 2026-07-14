@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './index.css'
 import App from './App';
 import {BrowserRouter} from 'react-router-dom';
 import CartProvider from './context/CartContext';
-
+import "./styles/branding.css"
+import { AuthProvider } from './context/AuthContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
-  <BrowserRouter>
+<BrowserRouter>
+  <AuthProvider>
     <CartProvider>
       <App />
-    </CartProvider>    
-  </BrowserRouter>
+    </CartProvider>
+  </AuthProvider>
+</BrowserRouter>
 
 );

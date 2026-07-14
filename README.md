@@ -1,16 +1,116 @@
-# React + Vite
+🐾 Politikitos Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+E-commerce de mascotas virtuales inspirado en personajes políticos ficticios
 
-Currently, two official plugins are available:
+Descripción del Proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Politikitos Store** es un e-commerce desarrollado como proyecto final para la cursada de React JS.
 
-## React Compiler
+La aplicación permite explorar un catálogo de mascotas virtuales ficticias, visualizar sus características y realizar una simulación de compra mediante un carrito de productos.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+El proyecto combina conceptos fundamentales de React como componentes reutilizables, manejo de estados, rutas, contexto global y consumo de datos.
 
-## Expanding the ESLint configuration
+Demo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🔗 Link del proyecto desplegado:
+
+(Agregar aquí el link de Netlify)
+
+Tecnologías utilizadas
+
+- React JS
+- Vite
+- JavaScript
+- HTML5
+- CSS3
+- React Router DOM
+- Context API
+
+
+Funcionalidades
+
+Catálogo de productos
+
+- Visualización de productos disponibles.
+- Filtrado por categorías.
+- Información detallada de cada mascota.
+
+Detalle de producto
+
+Cada producto cuenta con:
+
+- Imagen.
+- Nombre.
+- Descripción.
+- Precio.
+- Selector de cantidad.
+
+Carrito de compras
+
+Permite:
+
+- Agregar productos.
+- Modificar cantidades.
+- Eliminar productos.
+- Visualizar el total de compra.
+
+Checkout
+
+Formulario para completar los datos del comprador y generar una orden de compra.
+
+
+
+Estructura del Proyecto
+src
+│
+├── assets
+│
+├── components
+│ ├── Carrito 
+│ │   ├── CartWidget.jsx
+│ │   └── CartWidget.module.css  
+│ ├── Formulario
+│ │   ├── Checkout.jsx
+│ │   ├── Formulario.jsx
+│ │   └── Formulario.module.css
+│ ├── Layout
+│ │   ├── Footer.jsx
+│ │   ├── Footer.module.css
+│ │   ├── Header.jsx
+│ │   ├── Header.module.css
+│ │   ├── Layout.jsx
+│ │   ├── Layout.module.css
+│ │   ├── NavBar.jsx
+│ │   └── NavBar.module.css
+│ ├── Productos
+│ │   ├── Item.jsx
+│ │   ├── Item.module.jsx
+│ │   ├── ItemList.jsx
+│ │   ├── ItemList.module.css
+│ │   ├── ItemListContainer.jsx
+│ │   ├── ItemListContainer.module.css
+│ │   ├── ProductoDetalle.jsx
+│ │   └── ProductoDetalle.module.css
+│ └── ProtectedRoute.jsx
+├── context
+│   ├── AuthContext.jsx
+│   └── CartContext.jsx
+├── data
+│   └── productos.json
+├── firebase
+│   ├── config.js
+│   └── subirProductos.js
+├── pages
+│   ├── Admin.jsx
+│   ├── Carrito.jsx
+│   ├── Home.jsx
+│   ├── Login.jsx
+│   ├── OrdenExitoda.jsx
+│   └── Productos.jsx
+├── styles
+│   └── brandings.css
+├── App.css
+├── App.jsx
+├── index.css
+├── main.jsx
+
