@@ -1,12 +1,16 @@
-import { useContext, useState } from 'react';
-import { CartContext } from '../context/CartContext';
-import Checkout from '../componentes/formulario/Checkout';
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../context/CartContext";
+import Checkout from "../componentes/formulario/Checkout";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase/config";
 
 function Carrito() {
-
   const { cart, removeFromCart, clearCart } = useContext(CartContext);
 
-  const [cupon, setCupon] = useState("");
+  const [codigo, setCodigo] = useState("");
+
+  const [cupones, setCupones] = useState([]);
+
   const [descuento, setDescuento] = useState(0);
 
   const total = cart.reduce(
@@ -15,25 +19,49 @@ function Carrito() {
     0
   );
 
+  const totalFinal = total - descuento;
+
+  useEffect(() => {
+
+    const obtenerCupones = async () => {
+
+      const snapshot = await getDocs(
+        collection(db, "cupones")
+      );
+
+      const lista = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+
+      setCupones(lista);
+
+    };
+
+    obtenerCupones();
+
+  }, []);
+
   const aplicarCupon = () => {
 
-    if (cupon.toUpperCase() === "POLITIKEROS10") {
+    const cupon = cupones.find(
+      c =>
+        c.codigo.toUpperCase() === codigo.toUpperCase() &&
+        c.activo
+    );
 
-      setDescuento(total * 0.10);
-
-    } else {
-
+    if (!cupon) {
       alert("Cupón inválido");
       setDescuento(0);
-
+      return;
     }
+
+    setDescuento(total * (cupon.descuento / 100));
 
   };
 
-  const totalFinal = total - descuento;
-
   return (
-    <section style={{ padding: '2rem' }}>
+    <section style={{ padding: "2rem" }}>
 
       <h2>Carrito de adopción 🛒</h2>
 
@@ -55,14 +83,14 @@ function Carrito() {
               <article
                 key={producto.id}
                 style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: '20px',
-                  marginBottom: '20px',
-                  alignItems: 'center',
-                  backgroundColor: 'white',
-                  padding: '1rem',
-                  borderRadius: '10px'
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "20px",
+                  marginBottom: "20px",
+                  alignItems: "center",
+                  backgroundColor: "white",
+                  padding: "1rem",
+                  borderRadius: "10px"
                 }}
               >
 
@@ -83,8 +111,7 @@ function Carrito() {
                   <p>Cantidad: {producto.cantidad}</p>
 
                   <p>
-                    Subtotal: $
-                    {producto.precio * producto.cantidad}
+                    Subtotal: ${producto.precio * producto.cantidad}
                   </p>
 
                   <button
@@ -99,43 +126,59 @@ function Carrito() {
 
             ))}
 
-            <hr style={{ margin: '2rem 0' }} />
+            <hr style={{ margin: "2rem 0" }} />
 
-            <div style={{ marginBottom: '2rem' }}>
+            <div style={{ marginBottom: "2rem" }}>
 
               <input
                 type="text"
                 placeholder="Cupón de descuento"
-                value={cupon}
-                onChange={(e) => setCupon(e.target.value)}
+                value={codigo}
+                onChange={(e) => setCodigo(e.target.value)}
               />
 
               <button
                 onClick={aplicarCupon}
-                style={{ marginLeft: '10px' }}
+                style={{ marginLeft: "10px" }}
               >
                 Aplicar
               </button>
 
-              {descuento > 0 && (
+              <div style={{ marginTop: "1rem" }}>
 
-                <div style={{ marginTop: '1rem' }}>
+                <p>Subtotal: ${total.toFixed(2)}</p>
 
-                  <p>Descuento: ${descuento.toFixed(2)}</p>
+                {descuento > 0 ? (
+
+                  <>
+
+                    <p style={{ color: "green" }}>
+                      Descuento aplicado: -${descuento.toFixed(2)}
+                    </p>
+
+                    <h2>
+                      Total final: ${totalFinal.toFixed(2)}
+                    </h2>
+
+                  </>
+
+                ) : (
 
                   <h2>
-                    Total final: ${totalFinal.toFixed(2)}
+                    Total: ${total.toFixed(2)}
                   </h2>
 
-                </div>
+                )}
 
-              )}
+              </div>
 
             </div>
 
-            <h2>Total de la adopción: ${total}</h2>
-
-            <Checkout />
+            <Checkout
+              totalFinal={totalFinal}
+              descuento={descuento}
+              codigo={codigo}
+            />
 
           </>
 

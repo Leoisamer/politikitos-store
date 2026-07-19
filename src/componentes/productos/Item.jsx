@@ -1,9 +1,13 @@
 import {Link} from 'react-router-dom';
 import styles from './Item.module.css';
 import {useState} from 'react'
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 
 function Item({ id, nombre, precio, imagen, descripcion }) {
+  
+  const { addToCart } = useContext(CartContext);
   
   const [like, setLike] = useState(false);
   
@@ -26,6 +30,12 @@ function Item({ id, nombre, precio, imagen, descripcion }) {
         >
           {like ? '⭐' : '☆'}
         </span>
+      </div>
+
+      <div>
+        <button onClick={() => addToCart({ id, nombre, precio, imagen })}>
+          Adoptar político
+        </button>
       </div>
       
     </article>

@@ -8,6 +8,8 @@ import OrdenExitosa from './pages/OrdenExitosa';
 import Login from './pages/Login';
 import ProtectedRoute from './componentes/ProtectedRoute';
 import Admin from './pages/Admin';
+import AdminProductos from './componentes/admin/AdminProductos';
+import AdminCupones from './componentes/admin/AdminCupones';
 
 
 function App() {
@@ -25,7 +27,22 @@ function App() {
             <Admin />
           </ProtectedRoute>
           }
-/>
+        />
+        
+        <Route path="/admin/productos" element={
+          <ProtectedRoute>
+            <AdminProductos />
+          </ProtectedRoute>
+          }
+        />
+        
+        <Route path="/admin/cupones" element={
+          <ProtectedRoute>
+            <AdminCupones />
+          </ProtectedRoute>
+          }
+        />
+
       </Route>
     </Routes>
   );

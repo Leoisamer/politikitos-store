@@ -30,15 +30,11 @@ function ProductoDetalle() {
             id: snapshot.id,
             ...snapshot.data(),
           });
-
         }
 
       } catch (error) {
-
         console.error(error);
-
       }
-
     };
 
     obtenerProducto();

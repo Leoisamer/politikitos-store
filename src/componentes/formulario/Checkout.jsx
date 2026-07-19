@@ -4,7 +4,7 @@ import { CartContext } from '../../context/CartContext';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 
-function Checkout() {
+function Checkout({ totalFinal, descuento, codigo }) {
 
   const { cart, clearCart } = useContext(CartContext);
 
@@ -33,7 +33,10 @@ function Checkout() {
       telefono
     },
     items: cart,
-    total,
+    subtotal: total,
+    descuento,
+    cupon: codigo,
+    total: totalFinal,
     fecha: new Date()
   };
 
