@@ -10,6 +10,7 @@ import ProtectedRoute from './componentes/ProtectedRoute';
 import Admin from './pages/Admin';
 import AdminProductos from './componentes/admin/AdminProductos';
 import AdminCupones from './componentes/admin/AdminCupones';
+import AdminSolicitudes from './componentes/admin/AdminSolicitudes';
 
 
 function App() {
@@ -43,6 +44,12 @@ function App() {
           }
         />
 
+        <Route path="/admin/solicitudes" element={
+          <ProtectedRoute>
+            <AdminSolicitudes />
+          </ProtectedRoute>
+          }
+        />
       </Route>
     </Routes>
   );

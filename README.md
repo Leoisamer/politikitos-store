@@ -1,30 +1,37 @@
-🐾 Politikitos Store
+🐣 Politikitos Store
 
-Politikitos Store es un e-commerce desarrollado con React como proyecto final de la cursada de Front-End.
+Descripción
 
-La aplicación permite navegar por un catálogo de productos, visualizar el detalle de cada uno, agregarlos al carrito y gestionar el catálogo mediante un panel de administración conectado a Firebase.
+**Politikitos Store** es un e-commerce desarrollado con **React** como proyecto final de la cursada de Front-End.
+
+La aplicación permite explorar un catálogo de Politikitos (mascotas virtuales satíricas inspiradas en personajes de la política), visualizar el detalle de cada uno, agregarlos al carrito, aplicar cupones de descuento y finalizar una adopción virtual. Además, cuenta con un panel de administración conectado a Firebase para gestionar el contenido del sitio.
 
 Tecnologías utilizadas
 
-- React
-- Vite
-- React Router DOM
-- React Bootstrap
-- Firebase
-- Context API
-- CSS Modules
-- JavaScript (ES6)
+* React
+* Vite
+* React Router DOM
+* Firebase Authentication
+* Cloud Firestore
+* Context API
+* CSS Modules
+* JavaScript (ES6)
 
 Funcionalidades
 
-- Visualización del catálogo de productos.
-- Detalle de cada producto.
-- Carrito de compras.
-- Agregar, editar y eliminar productos (CRUD).
-- Autenticación de usuarios con Firebase.
-- Rutas protegidas.
-- Diseño responsive.
-- Navegación mediante React Router.
+* 🛍️ Catálogo de Politikitos.
+* 📄 Vista de detalle de cada producto.
+* 🛒 Carrito de compras con control de cantidades.
+* 🎟️ Aplicación de cupones de descuento almacenados en Firestore.
+* 📝 Registro de órdenes de adopción en Firebase.
+* 📬 Formulario de solicitudes de adopción con almacenamiento en Firestore.
+* 🔐 Autenticación de administrador mediante Firebase Authentication.
+* 📦 Panel de administración de productos (CRUD).
+* 🎫 Panel de administración de cupones (CRUD).
+* 🐣 Panel de administración de solicitudes de adopción.
+* 🎬 Vista previa mediante videos al pasar el cursor sobre los Politikitos.
+* 📱 Diseño responsive.
+* 🧭 Navegación mediante React Router.
 
 Instalación
 
@@ -52,11 +59,9 @@ Ejecutar el proyecto:
 npm run dev
 ```
 
-Firebase
+Configuración de Firebase
 
 Para ejecutar el proyecto es necesario crear un archivo `.env` con las credenciales de Firebase.
-
-Ejemplo:
 
 ```env
 VITE_API_KEY=
@@ -67,12 +72,35 @@ VITE_MESSAGING_SENDER_ID=
 VITE_APP_ID=
 ```
 
+Estructura general del proyecto
+
+```text
+src/
+│
+├── componentes/
+├── context/
+├── firebase/
+├── pages/
+├── routes/
+└── assets/
+```
+
+Próximas mejoras
+
+* Integración con pasarela de pagos.
+* Gestión de stock en tiempo real.
+* Búsqueda y filtrado de productos.
+* Panel de estadísticas para el administrador.
+* Animaciones y mayor interacción con las mascotas virtuales.
+* Lanzamiento de la versión comercial de Politikitos.
+
+Aviso
+
+**Politikitos Store** es un proyecto académico desarrollado con fines educativos y de entretenimiento. Los personajes presentados son ficticios y forman parte de una propuesta de humor satírico. Cualquier semejanza con personas reales constituye una representación humorística sin intención de afectar derechos o reputaciones.
+
 Autora
 
-**Leoisamer Gil**
+Leoisamer Gil
 
-Proyecto desarrollado como entrega final del curso de React.
+Proyecto desarrollado como trabajo final del curso de React.
 
-Estado del proyecto
-
-Proyecto finalizado con fines educativos.

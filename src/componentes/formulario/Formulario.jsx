@@ -1,5 +1,7 @@
 import {useState} from 'react';
 import styles from './Formulario.module.css';
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
 
 function Formulario() {
@@ -17,15 +19,33 @@ function Formulario() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Solicitud enviada al centro de adopción 😎');
-   
-    setFormData({
-      nombre: '',
-      email: '',
-      mensaje: ''
-    });
+
+    try {
+      await addDoc(
+        collection(db, "solicitudesAdopcion"),
+        {
+          nombre: formData.nombre,
+          email: formData.email,
+          mensaje: formData.mensaje,
+          estado: "Pendiente",
+          fecha: new Date()
+        }
+      );
+
+      alert("Solicitud enviada correctamente 🐣");
+      setFormData({
+        nombre: "",
+        email: "",
+        mensaje: ""
+      });
+
+    } catch (error) {
+      console.error(error);
+
+      alert("Ocurrió un error al enviar la solicitud.");
+    }
   };
 
   return (

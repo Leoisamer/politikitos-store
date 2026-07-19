@@ -17,7 +17,7 @@ function Admin() {
         Seleccioná una opción.
       </p>
 
-      <br />
+      <br /><br />
 
       <Link to="/admin/productos">
         <button>
@@ -33,10 +33,16 @@ function Admin() {
         </button>
       </Link>
 
+      <br /><br />
+      
+      <Link to="/admin/solicitudes">
+        <button>
+          🐣 Gestionar solicitudes
+        </button>
+      </Link>
+
     </section>
-
   );
-
 }
 
 export default Admin;
